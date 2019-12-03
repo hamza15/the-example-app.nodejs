@@ -10,10 +10,9 @@ pipeline {
         	steps {
                 sh '''
                     VERSION=${BRANCH_NAME}.$(git rev-parse --short=6 HEAD).${BUILD_NUMBER}.$(date +%y%m%d_%H%M)
-                    echo $VERSION
                     GIT_COMMIT=$(git log -1 --pretty=format:%h:%aE:%s):::${VERSION}
-                    echo $GIT_COMMIT
-                    echo 'Complete'
+                    echo "Git commit is ${GIT_COMMIT}"
+                    echo "Image tag is :: ${VERSION}"
                     
                 '''    
         	}	
