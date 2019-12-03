@@ -9,7 +9,7 @@ pipeline {
         stage('post build') {
         	steps {
                 sh '''
-                    VERSION=${env.BRANCH_NAME}
+                    VERSION=${BRANCH_NAME}
                     echo $VERSION
                     echo 'Complete'
                 '''    
