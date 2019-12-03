@@ -9,7 +9,7 @@ pipeline {
         stage('post build') {
         	steps {
                 sh '''
-                    VERSION=${BRANCH_NAME}
+                    VERSION=${BRANCH_NAME}.$(git rev-parse --short=6 HEAD).${BUILD_NUMBER}.$(date +%y%m%d_%H%M)
                     echo $VERSION
                     echo 'Complete'
                 '''    
