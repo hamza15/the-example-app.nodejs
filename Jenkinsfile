@@ -8,7 +8,8 @@ pipeline {
         }
         stage('post build') {
         	steps {
-        		echo 'Complete'
+        		sh 'node -v'
+                echo 'Complete'
         	}	
         }
     }
