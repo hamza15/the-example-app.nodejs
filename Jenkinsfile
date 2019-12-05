@@ -17,5 +17,12 @@ pipeline {
                 '''    
         	}	
         }
+        stage('Test NPM') {
+            steps {
+                sh '''
+                   npm -v
+                '''
+            }
+        }
     }
 }
