@@ -16,7 +16,8 @@ pipeline {
                     GIT_COMMIT=$(git log -1 --pretty=format:%h:%aE:%s):::${VERSION}
                     echo "Git commit is ${GIT_COMMIT}"
                     echo "Image tag is :: ${VERSION}"
-                    
+                    echo ${VERSION} > file.txt
+                    myVar = readFile('file.txt').trim()
                 '''    
         	}	
         }
@@ -37,7 +38,7 @@ pipeline {
         stage('Test Envrionment Variables') {
             steps {
                 sh '''
-                   echo "${VERSION}"
+                   echo "${myVar}"
                 '''
             }
         }
