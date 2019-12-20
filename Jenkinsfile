@@ -37,7 +37,7 @@ pipeline {
         stage('Test Envrionment Variables') {
             steps {
                 sh '''
-                   echo ${VERSION}
+                   echo "${VERSION}"
                 '''
             }
         }
