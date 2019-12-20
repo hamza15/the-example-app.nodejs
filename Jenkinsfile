@@ -3,6 +3,10 @@ pipeline {
     
     tools {nodejs 'node'}
     
+    envrionment {
+        DATE = $(date +%y%m%d_%H%M)   
+    }
+    
     stages {
         stage('build') {
             steps {
@@ -31,6 +35,13 @@ pipeline {
             steps {
                 sh '''
                    node -v
+                '''
+            }
+        }
+        stage('Test Envrionment Variables') {
+            steps {
+                sh '''
+                   echo $DATE
                 '''
             }
         }
